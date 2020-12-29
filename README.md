@@ -18,7 +18,7 @@ We recommend using `conda` to setup the environment and install the required pac
 
 First, create the conda environment,
 
-`conda create -n xda python=3.7 numpy scipy scikit-learn matplotlib ipython`
+`conda create -n xda python=3.7 numpy scipy scikit-learn colorama`
 
 and activate the conda environment:
 
@@ -26,7 +26,7 @@ and activate the conda environment:
 
 Then, install the latest Pytorch (assume you have GPU):
 
-`conda install pytorch torchvision cudatoolkit=10.2 -c pytorch`
+`conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch`
 
 Finally, enter the xda root directory: e.g., `path/to/xda`, and install XDA:
 
@@ -38,9 +38,27 @@ Finally, enter the xda root directory: e.g., `path/to/xda`, and install XDA:
 
 Create the `checkpoints` and `checkpoints/pretrain_all` subdirectory in `path/to/xda`
 
-`mkdir checkpoints`, `mkdir checkpoints/pretrain_all`
+`mkdir -p checkpoints/pretrain_all`
 
 Download our [pretrained weight parameters](https://drive.google.com/file/d/18LMUt6xJGTrSJ4HoaXBUYt2le3YNGcOu/view?usp=sharing) and put in `checkpoints/pretrain_all`
+
+### Finetuned models:
+
+We also provide the finetuned model for you to directly play on function boundary recovery. The finetuned model is trained on binaries compiled by MSVC x64. Create the `checkpoints/finetune_msvs_funcbound_64` subdirectory in `path/to/xda`
+
+`mkdir -p checkpoints/finetune_msvs_funcbound_64`
+
+Download our [finetuned weight parameters](https://drive.google.com/file/d/1103Hq2ZShlF-4qRPudtjDru5fBqAckds/view?usp=sharing) and put in `checkpoints/finetune_msvs_funcbound_64`. 
+
+#### Play with the finetuned model
+We have put some sample data from BAP corpus compiled by MSVC x64 in `data-raw/msvs_funcbound_64_bap_test`. There are two columns in the data files. The first column is all raw bytes of the binary, and the second column is the label indicating it is function start (F), function end (R), or neither.
+
+To predict the function boundary in these files, run:
+
+`python scripts/play/play_func_bound.py`
+
+This scripts will load the finetuned weights you put in `checkpoints/finetune_msvs_funcbound_64` and predict the function boundaries. It will also compare to the ground-truth and the results from IDA.
+
 
 ### Sample data with function boundaries
 
@@ -50,7 +68,7 @@ We provide the sample training/testing files of pretraining and finetuning in `d
 - `data-src/funcbound` contains the sample raw bytes with function boundaries
 
 
-We have already provided the [pretrained models](https://drive.google.com/file/d/18LMUt6xJGTrSJ4HoaXBUYt2le3YNGcOu/view?usp=sharing) on a huge number of binaries. However, if you want to pretrain on your own collected data, you can prepare the sample files similar to the format in `data-src/pretrain_all` (concatenate all bytes from all binaries, and delimit by a newline `\n` to make sure each line does not exceed the max length that model accepts). 
+We have already provided the [pretrained models](https://drive.google.com/file/d/18LMUt6xJGTrSJ4HoaXBUYt2le3YNGcOu/view?usp=sharing) on a huge number of binaries. But if you want to pretrain on your own collected data, you can prepare the sample files similar to the format in `data-src/pretrain_all` (concatenate all bytes from all binaries, and delimit by a newline `\n` to make sure each line does not exceed the max length that model accepts). 
 Similarly, if you want to prepare the finetuning data yourself, make sure you follow the format shown in `data-src/funcbound`.
 
 We have to binarize the data to make it ready to be trained. To binarize the training data for pretraining, run:
