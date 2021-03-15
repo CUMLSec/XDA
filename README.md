@@ -40,7 +40,7 @@ Create the `checkpoints` and `checkpoints/pretrain_all` subdirectory in `path/to
 
 `mkdir -p checkpoints/pretrain_all`
 
-Download our [pretrained weight parameters](https://drive.google.com/file/d/18LMUt6xJGTrSJ4HoaXBUYt2le3YNGcOu/view?usp=sharing) and put in `checkpoints/pretrain_all`
+Download our [pretrained weight parameters](https://drive.google.com/file/d/1k1en42j749BEtr5-AFEjC9cvFy9Y5zDI/view?usp=sharing) and put in `checkpoints/pretrain_all`
 
 ### Finetuned models:
 
