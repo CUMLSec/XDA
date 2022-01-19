@@ -68,7 +68,7 @@ We provide the sample training/testing files of pretraining and finetuning in `d
 - `data-src/funcbound` contains the sample raw bytes with function boundaries
 
 
-We have already provided the [pretrained models](https://drive.google.com/file/d/18LMUt6xJGTrSJ4HoaXBUYt2le3YNGcOu/view?usp=sharing) on a huge number of binaries. But if you want to pretrain on your own collected data, you can prepare the sample files similar to the format in `data-src/pretrain_all` (concatenate all bytes from all binaries, and delimit by a newline `\n` to make sure each line does not exceed the max length that model accepts). 
+We have already provided the [pretrained models](https://drive.google.com/file/d/1k1en42j749BEtr5-AFEjC9cvFy9Y5zDI/view?usp=sharing) on a huge number of binaries. But if you want to pretrain on your own collected data, you can prepare the sample files similar to the format in `data-src/pretrain_all` (concatenate all bytes from all binaries, and delimit by a newline `\n` to make sure each line does not exceed the max length that model accepts). 
 Similarly, if you want to prepare the finetuning data yourself, make sure you follow the format shown in `data-src/funcbound`.
 
 We have to binarize the data to make it ready to be trained. To binarize the training data for pretraining, run:
