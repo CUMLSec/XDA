@@ -66,27 +66,20 @@ def predict(filename, model):
     print("batch:", speed)
 
 
-torch.set_num_threads(1)
-torch.set_num_interop_threads(1)
-import os
-
-os.environ["OMP_NUM_THREADS"] = "1"
-os.environ["OPENBLAS_NUM_THREADS"] = "1"
-os.environ["MKL_NUM_THREADS"] = "1"
-os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
-os.environ["NUMEXPR_NUM_THREADS"] = "1"
-
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# GPU Eval
 # Load our model
-# roberta_gpu = RobertaModel.from_pretrained('checkpoints/finetune_msvs_funcbound_64', 'checkpoint_best.pt',
-#                                            'data-bin/funcbound_msvs_64', bpe=None, user_dir='finetune_tasks')
-# print("GPU:")
-# roberta_gpu.cuda(2)
-# roberta_gpu.eval()
-#
-# predict('msvs_64_O2_vim', roberta_gpu)
-# del roberta_gpu
+roberta_gpu = RobertaModel.from_pretrained('checkpoints/finetune_msvs_funcbound_64', 'checkpoint_best.pt',
+                                           'data-bin/funcbound_msvs_64', bpe=None, user_dir='finetune_tasks')
+print("GPU:")
+roberta_gpu.cuda(2)
+roberta_gpu.eval()
+
+predict('msvs_64_O2_vim', roberta_gpu)
+del roberta_gpu
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CPU Eval
 # Load our model
 roberta_cpu = RobertaModel.from_pretrained('checkpoints/finetune_msvs_funcbound_64', 'checkpoint_best.pt',
                                            'data-bin/funcbound_msvs_64', bpe=None, user_dir='finetune_tasks')

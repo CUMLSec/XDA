@@ -42,6 +42,8 @@ Create the `checkpoints` and `checkpoints/pretrain_all` subdirectory in `path/to
 
 Download our [pretrained weight parameters](https://drive.google.com/file/d/1k1en42j749BEtr5-AFEjC9cvFy9Y5zDI/view?usp=sharing) and put in `checkpoints/pretrain_all`
 
+[2022-1-19 updates] I have added a new dedicated [pretrained weight](https://drive.google.com/file/d/1PLoRMYKUnsa2NJbmpOOkOeeQjjHm3sy4/view?usp=sharing) for x64 binaries compiled by both GCC and Clang 
+
 ### Finetuned models:
 
 We also provide the finetuned model for you to directly play on function boundary recovery. The finetuned model is trained on binaries compiled by MSVC x64. Create the `checkpoints/finetune_msvs_funcbound_64` subdirectory in `path/to/xda`
@@ -98,6 +100,10 @@ The scripts loads the pretrained weight parameters from `checkpoints/pretrain_al
 ## RNN baseline
 - bi-RNN implementation is released under ./bi-RNN/
 - To run, download our sample processed SPEC 2017 O1 dataset [training](https://drive.google.com/file/d/1CzUcTaJhum-EQ4x0KDZvHUMeNhSCgSKC/view?usp=sharing), [testing](https://drive.google.com/file/d/1sDcOOQkXdTumpLWt9nZu5ScONWtYitDg/view?usp=sharing) and put in `birnn/`
+
+## Speed Evaluation
+
+For speed evaluation, I have put a script at `https://github.com/CUMLSec/XDA/blob/main/scripts/play/speed_eval.py`
 
 ## References
 [1] Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems. 2017.
