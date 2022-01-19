@@ -42,7 +42,7 @@ Create the `checkpoints` and `checkpoints/pretrain_all` subdirectory in `path/to
 
 Download our [pretrained weight parameters](https://drive.google.com/file/d/1k1en42j749BEtr5-AFEjC9cvFy9Y5zDI/view?usp=sharing) and put in `checkpoints/pretrain_all`
 
-[2022-1-19 updates] I have added a new dedicated [pretrained weight](https://drive.google.com/file/d/1PLoRMYKUnsa2NJbmpOOkOeeQjjHm3sy4/view?usp=sharing) for x64 binaries compiled by both GCC and Clang 
+- 2022-1-19: Uploaded a new dedicated [pretrained weight](https://drive.google.com/file/d/1PLoRMYKUnsa2NJbmpOOkOeeQjjHm3sy4/view?usp=sharing) for Linux x64 binaries compiled by both GCC and Clang 
 
 ### Finetuned models:
 
