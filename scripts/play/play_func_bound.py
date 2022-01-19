@@ -3,7 +3,7 @@ import os
 from collections import defaultdict
 from colorama import Fore, Back, Style
 import torch
-
+import sys
 
 def int2hex(s):
     return s
@@ -114,10 +114,14 @@ def predict_color(filename, model, start_idx=0, end_idx=0):
     return tokens, func_start, func_end
 
 
+print(f'{Fore.RED}red:function start{Fore.RESET}')
+print(f'{Fore.GREEN}green:function end{Fore.RESET}')
+
 # Load our model
 roberta = RobertaModel.from_pretrained('checkpoints/finetune_msvs_funcbound_64', 'checkpoint_best.pt',
                                        'data-bin/funcbound_msvs_64', bpe=None, user_dir='finetune_tasks')
 roberta.eval()
 
 # ida_f1()
-tokens, func_start, func_end = predict_color('msvs_64_O2_vim', roberta, start_idx=0, end_idx=510)
+#tokens, func_start, func_end = predict_color('msvs_64_O2_vim', roberta, start_idx=0, end_idx=510)
+tokens, func_start, func_end = predict_color('msvs_64_O2_vim', roberta, start_idx=int(sys.argv[1]), end_idx=int(sys.argv[2]))

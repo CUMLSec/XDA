@@ -97,7 +97,7 @@ The scripts loads the pretrained weight parameters from `checkpoints/pretrain_al
 
 ## RNN baseline
 - bi-RNN implementation is released under ./bi-RNN/
-- To run, download our sample processed SPEC 2017 O1 dataset [training](https://drive.google.com/file/d/1me1b5sbZM8nncVWevwf7v2jEEYNF_jm_/view?usp=sharing), [testing](https://drive.google.com/file/d/1FD_9pXMiDJ61mmmeaQse4xobM8RAzPZN/view?usp=sharing) and put in `birnn/`
+- To run, download our sample processed SPEC 2017 O1 dataset [training](https://drive.google.com/file/d/1CzUcTaJhum-EQ4x0KDZvHUMeNhSCgSKC/view?usp=sharing), [testing](https://drive.google.com/file/d/1sDcOOQkXdTumpLWt9nZu5ScONWtYitDg/view?usp=sharing) and put in `birnn/`
 
 ## References
 [1] Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems. 2017.

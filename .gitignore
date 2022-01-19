@@ -115,7 +115,7 @@ ENV/
 /fairseq/modules/*_layer/*_backward.cu
 
 # data
-#data-bin/
+data-bin/
 
 # reranking
 /examples/reranking/rerank_data
@@ -133,3 +133,7 @@ experimental/*
 
 # Result logging
 result/*
+
+# playground
+scripts/play/
+
