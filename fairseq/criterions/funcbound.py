@@ -49,13 +49,14 @@ class FuncboundCriterion(FairseqCriterion):
         loss = F.nll_loss(predictions, targets, reduction='sum')
 
         logging_output = {
-            'loss': utils.item(loss.data) if reduce else loss.data,
+            'loss': loss.data,
             'ntokens': sample['ntokens'],
             'nsentences': sample_size,
             'sample_size': sample_size,
         }
 
         preds = logits.view(-1, logits.size(-1)).max(dim=-1)[1]  # get the index of largest
+
         # Boundary should only be start and end
         logging_output.update(ncorrect=((preds == targets) * (targets != 0)).sum().item())
         # Total number of function start and end
