@@ -40,9 +40,9 @@ Create the `checkpoints` and `checkpoints/pretrain_all` subdirectory in `path/to
 
 `mkdir -p checkpoints/pretrain_all`
 
-Download our [pretrained weight parameters](https://drive.google.com/file/d/1k1en42j749BEtr5-AFEjC9cvFy9Y5zDI/view?usp=sharing) and put in `checkpoints/pretrain_all`
+Download our [pretrained weight parameters](https://drive.google.com/file/d/1qgEcqrTqBp2n_sy5RhS_YiYY-YpNI5N_/view?usp=sharing) and put in `checkpoints/pretrain_all`
 
-- 2022-1-19: Uploaded a new dedicated [pretrained weight](https://drive.google.com/file/d/1PLoRMYKUnsa2NJbmpOOkOeeQjjHm3sy4/view?usp=sharing) for Linux x64 binaries compiled by both GCC and Clang 
+- 2022-1-19: Uploaded a new dedicated [pretrained weight](https://drive.google.com/file/d/1dPax61zm4pS4Vsbc_Py7Ycp2H59MugP4/view?usp=sharing) for Linux x64 binaries compiled by both GCC and Clang 
 
 ### Finetuned models:
 
@@ -50,7 +50,9 @@ We also provide the finetuned model for you to directly play on function boundar
 
 `mkdir -p checkpoints/finetune_msvs_funcbound_64`
 
-Download our [finetuned weight parameters](https://drive.google.com/file/d/1103Hq2ZShlF-4qRPudtjDru5fBqAckds/view?usp=sharing) and put in `checkpoints/finetune_msvs_funcbound_64`. 
+Download our [finetuned weight parameters](https://drive.google.com/file/d/10XZSE8jfFp3P5KjHp4SFZ0qUmOJoA8uI/view?usp=sharing) and put in `checkpoints/finetune_msvs_funcbound_64`. 
+
+- 2024-11-04: Uploaded new [finetuned weight parameters](https://drive.google.com/file/d/1i9nMRwXj6b8mGG9LGUmon3BkOTOeyIqv/view?usp=sharing) for elf instruction boundary prediction (not tested, might be inaccurate).
 
 #### Play with the finetuned model
 We have put some sample data from BAP corpus compiled by MSVC x64 in `data-raw/msvs_funcbound_64_bap_test`. There are two columns in the data files. The first column is all raw bytes of the binary, and the second column is the label indicating it is function start (F), function end (R), or neither.
@@ -70,7 +72,7 @@ We provide the sample training/testing files of pretraining and finetuning in `d
 - `data-src/funcbound` contains the sample raw bytes with function boundaries
 
 
-We have already provided the [pretrained models](https://drive.google.com/file/d/1k1en42j749BEtr5-AFEjC9cvFy9Y5zDI/view?usp=sharing) on a huge number of binaries. But if you want to pretrain on your own collected data, you can prepare the sample files similar to the format in `data-src/pretrain_all` (concatenate all bytes from all binaries, and delimit by a newline `\n` to make sure each line does not exceed the max length that model accepts). 
+We have already provided the [pretrained models](https://drive.google.com/file/d/1qgEcqrTqBp2n_sy5RhS_YiYY-YpNI5N_/view?usp=sharing) on a huge number of binaries. But if you want to pretrain on your own collected data, you can prepare the sample files similar to the format in `data-src/pretrain_all` (concatenate all bytes from all binaries, and delimit by a newline `\n` to make sure each line does not exceed the max length that model accepts). 
 Similarly, if you want to prepare the finetuning data yourself, make sure you follow the format shown in `data-src/funcbound`.
 
 We have to binarize the data to make it ready to be trained. To binarize the training data for pretraining, run:
@@ -99,7 +101,7 @@ The scripts loads the pretrained weight parameters from `checkpoints/pretrain_al
 
 ## RNN baseline
 - bi-RNN implementation is released under ./bi-RNN/
-- To run, download our sample processed SPEC 2017 O1 dataset [training](https://drive.google.com/file/d/1CzUcTaJhum-EQ4x0KDZvHUMeNhSCgSKC/view?usp=sharing), [testing](https://drive.google.com/file/d/1sDcOOQkXdTumpLWt9nZu5ScONWtYitDg/view?usp=sharing) and put in `birnn/`
+- To run, download our sample processed SPEC 2017 O1 dataset [training](https://drive.google.com/file/d/1CzUcTaJhum-EQ4x0KDZvHUMeNhSCgSKC/view?usp=sharing), [testing](https://drive.google.com/file/d/1Tk3AVlTRvihta98Cc25yDcwwhl1jWy0z/view?usp=sharing) and put in `birnn/`
 
 ## Speed Evaluation
 
